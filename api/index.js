@@ -164,4 +164,4 @@ async function getBalanceAtBlockNonFungi(contract, account, block) {
 	let output = dataToString(data)
 	return ({ meta: meta, balance: output })
 }
-app.listen(8080)
+module.exports = app
