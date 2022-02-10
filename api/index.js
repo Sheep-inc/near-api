@@ -81,11 +81,11 @@ function toHexString(byteArray) {
 
 const express = require('express')
 const app = express()
-app.get('/', function (req, res) {
+app.get('/api/', function (req, res) {
 	res.send("hi")
 })
 
-app.get('/fungi/:contract/:wallet/:block', function (req, res) {
+app.get('/api/fungi/:contract/:wallet/:block', function (req, res) {
 	getBalanceAtBlock(req.params.contract, req.params.wallet, Number(req.params.block)).then(data => {
 		res.send({
 			wallet: req.params.wallet,
@@ -99,7 +99,7 @@ app.get('/fungi/:contract/:wallet/:block', function (req, res) {
 		res.send({ status: 400 })
 	})
 })
-app.get('/nonfungi/:contract/:wallet/:block', function (req, res) {
+app.get('/api/nonfungi/:contract/:wallet/:block', function (req, res) {
 	getBalanceAtBlockNonFungi(req.params.contract, req.params.wallet, Number(req.params.block)).then(data => {
 		res.send({
 			wallet: req.params.wallet,
